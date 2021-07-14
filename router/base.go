@@ -3,13 +3,18 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 
-	myhandler "sme-stage/handler"
+	mywire "sme-stage/wire"
 )
 
 // SetupBaseRouter SetupBaseRouter
 func SetupBaseRouter(g *gin.Engine) {
-	r0 := g.Group("/")
+
+	// initialize API
+	_baseAPI := mywire.InitBaseAPI()
+
+	r := g.Group("/")
 	{
-		r0.GET("release", myhandler.Release)
+		r.GET("health", _baseAPI.Health)
+		r.GET("release", _baseAPI.Release)
 	}
 }

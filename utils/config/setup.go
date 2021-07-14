@@ -27,7 +27,19 @@ func Setup(path string) {
 	}
 
 	Application = &ApplicationStruct{
-		Port: viper.GetString("settings.application.port"),
+		Port: viper.GetString("application.port"),
 	}
+
+	Database.Dialect = viper.GetString("database.dialect")
+	Database.Database = viper.GetString("database.database")
+	Database.User = viper.GetString("database.user")
+	Database.Password = viper.GetString("database.password")
+	Database.Host = viper.GetString("database.host")
+	Database.Port = viper.GetInt("database.port")
+	Database.Charset = viper.GetString("database.charset")
+	Database.MaxIdleConns = viper.GetInt("database.maxIdleConns")
+	Database.MaxOpenConns = viper.GetInt("database.maxOpenConns")
+	Database.URL = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s&parseTime=True&loc=Local",
+		Database.User, Database.Password, Database.Host, Database.Port, Database.Database, Database.Charset)
 
 }

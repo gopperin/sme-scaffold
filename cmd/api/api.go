@@ -38,12 +38,23 @@ func setup() {
 }
 
 func run() {
+
 	router := gin.Default()
 
 	router.Use(Cors())
 
+	_db, err := InitDatabase()
+	if err != nil {
+		logrus.Println("InitDatabase error", err.Error())
+		return
+	}
+	logrus.Info("sme-stage start on:", myconfig.Application.Port)
+
 	/* api base */
 	myrouter.SetupBaseRouter(router)
+
+	/* product base */
+	myrouter.SetupProductRouter(router, _db)
 
 	server := &http.Server{
 		Addr:         ":" + myconfig.Application.Port,
