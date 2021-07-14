@@ -11,7 +11,7 @@ var (
 	StartCmd = &cobra.Command{
 		Use:     "version",
 		Short:   "get version info",
-		Example: "sme-stage version",
+		Example: "sme-scaffold version",
 		PreRun: func(cmd *cobra.Command, args []string) {
 
 		},

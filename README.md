@@ -1,6 +1,10 @@
-# sme-stage
+# sme-scaffold
 
-gin 脚手架
+gin clean scaffold
+
+- cobra
+- viper
+- wire
 
 ## wire
 
@@ -9,6 +13,8 @@ cd /wire
 wire -> wire_gen.go
 
 ## start
+
+core.yaml.sample -> core.yaml
 
 - go run . version
 - go run . start

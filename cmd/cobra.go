@@ -7,15 +7,15 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"sme-stage/cmd/api"
-	"sme-stage/cmd/version"
+	"sme-scaffold/cmd/api"
+	"sme-scaffold/cmd/version"
 )
 
 var rootCmd = &cobra.Command{
-	Use:          "sme-stage",
-	Short:        "sme-stage",
+	Use:          "sme-scaffold",
+	Short:        "sme-scaffold",
 	SilenceUsage: true,
-	Long:         `sme-stage`,
+	Long:         `sme-scaffold`,
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) < 1 {
 			tip()

@@ -6,8 +6,8 @@ import (
 	"github.com/google/wire"
 	"github.com/jinzhu/gorm"
 
-	"sme-stage/domain/base"
-	"sme-stage/domain/product"
+	"sme-scaffold/domain/base"
+	"sme-scaffold/domain/product"
 )
 
 // InitBaseAPI init base api wire

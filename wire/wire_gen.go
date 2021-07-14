@@ -7,8 +7,8 @@ package wire
 
 import (
 	"github.com/jinzhu/gorm"
-	"sme-stage/domain/base"
-	"sme-stage/domain/product"
+	"sme-scaffold/domain/base"
+	"sme-scaffold/domain/product"
 )
 
 // Injectors from wire.go:

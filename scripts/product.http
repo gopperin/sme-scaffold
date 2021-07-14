@@ -1,0 +1,31 @@
+
+################################################################
+######
+######    product section
+######
+################################################################
+
+### get products
+# 返回：
+GET http://127.0.0.1:11911/api/v1/products
+Content-Type: application/json;charset=utf-8
+
+### get products/:code
+# 返回：
+GET http://127.0.0.1:11911/api/v1/products/code01
+Content-Type: application/json;charset=utf-8
+
+### post products
+# 返回：
+POST http://127.0.0.1:11911/api/v1/products
+Content-Type: application/json;charset=utf-8
+
+{
+    "code": "code01",
+    "name": "产品１"
+}
+
+### delete products
+# 返回：
+DELETE  http://127.0.0.1:11911/api/v1/products/code01
+Content-Type: application/json;charset=utf-8

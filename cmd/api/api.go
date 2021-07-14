@@ -9,15 +9,15 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	myrouter "sme-stage/router"
-	myconfig "sme-stage/utils/config"
+	myrouter "sme-scaffold/router"
+	myconfig "sme-scaffold/utils/config"
 )
 
 // StartCmd api
 var (
 	StartCmd = &cobra.Command{
 		Use:   "start",
-		Short: "start sme-stage api", SilenceUsage: true,
+		Short: "start sme-scaffold api", SilenceUsage: true,
 		PreRun: func(cmd *cobra.Command, args []string) {
 			setup()
 		},
@@ -25,7 +25,7 @@ var (
 			//启动API服务
 			run()
 
-			logrus.Println("sme-stage end")
+			logrus.Println("sme-scaffold end")
 		},
 	}
 )
@@ -48,7 +48,7 @@ func run() {
 		logrus.Println("InitDatabase error", err.Error())
 		return
 	}
-	logrus.Info("sme-stage start on:", myconfig.Application.Port)
+	logrus.Info("sme-scaffold start on:", myconfig.Application.Port)
 
 	/* api base */
 	myrouter.SetupBaseRouter(router)
@@ -63,6 +63,6 @@ func run() {
 		WriteTimeout: 300 * time.Second,
 	}
 
-	logrus.Println("sme-stage start on:", myconfig.Application.Port)
+	logrus.Println("sme-scaffold start on:", myconfig.Application.Port)
 	gracehttp.Serve(server)
 }

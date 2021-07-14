@@ -1,4 +1,4 @@
-module sme-stage
+module sme-scaffold
 
 go 1.16
 

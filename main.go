@@ -3,7 +3,7 @@ package main
 import (
 	_ "github.com/go-sql-driver/mysql"
 
-	"sme-stage/cmd"
+	"sme-scaffold/cmd"
 )
 
 func main() {
