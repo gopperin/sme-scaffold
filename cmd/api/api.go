@@ -9,8 +9,9 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	myrouter "sme-scaffold/router"
-	myconfig "sme-scaffold/utils/config"
+	myconfig "sme-scaffold/internal/config"
+	mymiddleware "sme-scaffold/internal/middleware"
+	myrouter "sme-scaffold/internal/router"
 )
 
 // StartCmd api
@@ -41,7 +42,7 @@ func run() {
 
 	router := gin.Default()
 
-	router.Use(Cors())
+	router.Use(mymiddleware.Cors())
 
 	_db, err := InitDatabase()
 	if err != nil {

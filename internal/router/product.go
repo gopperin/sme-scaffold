@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 
-	mywire "sme-scaffold/wire"
+	mywire "sme-scaffold/internal/wire"
 )
 
 // SetupProductRouter SetupProductRouter

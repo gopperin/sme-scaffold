@@ -5,8 +5,8 @@ import (
 
 	"github.com/jinzhu/gorm"
 
-	"sme-scaffold/domain/product"
-	myconfig "sme-scaffold/utils/config"
+	myconfig "sme-scaffold/internal/config"
+	"sme-scaffold/internal/domain/product"
 )
 
 // InitDatabase InitDatabase

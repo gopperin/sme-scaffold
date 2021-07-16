@@ -18,6 +18,7 @@
 *.yaml
 *.db
 *.tmp
+*.sum
 
 # Folders
 tmp

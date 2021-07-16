@@ -42,4 +42,11 @@ func Setup(path string) {
 	Database.URL = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s&parseTime=True&loc=Local",
 		Database.User, Database.Password, Database.Host, Database.Port, Database.Database, Database.Charset)
 
+	CORS.Enable = viper.GetBool("cors.enable")
+	CORS.AllowOrigins = viper.GetStringSlice("cors.AllowOrigins")
+	CORS.AllowMethods = viper.GetStringSlice("cors.AllowMethods")
+	CORS.AllowHeaders = viper.GetStringSlice("cors.AllowHeaders")
+	CORS.AllowCredentials = viper.GetBool("cors.AllowCredentials")
+	CORS.MaxAge = viper.GetInt("cors.MaxAge")
+
 }

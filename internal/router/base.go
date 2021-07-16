@@ -3,7 +3,7 @@ package router
 import (
 	"github.com/gin-gonic/gin"
 
-	mywire "sme-scaffold/wire"
+	mywire "sme-scaffold/internal/wire"
 )
 
 // SetupBaseRouter SetupBaseRouter
