@@ -23,4 +23,6 @@ core.yaml.sample -> core.yaml
 
 - CORE_SETTINGS_APPLICATION_PORT=11911 go run . start
 
-## todo
+## figlet
+
+figlet -f digital sme-scaffold
