@@ -1,7 +1,7 @@
 package product
 
 import (
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 // Product Product

@@ -39,6 +39,7 @@ func Setup(path string) {
 	Database.Charset = viper.GetString("database.charset")
 	Database.MaxIdleConns = viper.GetInt("database.maxIdleConns")
 	Database.MaxOpenConns = viper.GetInt("database.maxOpenConns")
+	Database.LogMode = viper.GetString("database.logMode")
 	Database.URL = fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=%s&parseTime=True&loc=Local",
 		Database.User, Database.Password, Database.Host, Database.Port, Database.Database, Database.Charset)
 

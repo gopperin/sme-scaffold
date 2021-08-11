@@ -4,7 +4,7 @@ package wire
 
 import (
 	"github.com/google/wire"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 
 	"sme-scaffold/internal/domain/base"
 	"sme-scaffold/internal/domain/product"

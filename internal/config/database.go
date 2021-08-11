@@ -14,6 +14,7 @@ type DatabaseStruct struct {
 	URL          string
 	MaxIdleConns int
 	MaxOpenConns int
+	LogMode      string
 }
 
 // Database Database

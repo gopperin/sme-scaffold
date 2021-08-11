@@ -2,7 +2,7 @@ package product
 
 import (
 	"fmt"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 )
 
 // Repository Repository

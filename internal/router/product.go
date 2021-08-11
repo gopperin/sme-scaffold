@@ -2,7 +2,7 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jinzhu/gorm"
+	"gorm.io/gorm"
 
 	mywire "sme-scaffold/internal/wire"
 )
@@ -15,7 +15,7 @@ func SetupProductRouter(g *gin.Engine, db *gorm.DB) {
 
 	r := g.Group("/api/v1/products")
 	{
-		r.GET("/", _productAPI.GetAll)
+		r.GET("", _productAPI.GetAll)
 		r.GET("/:code", _productAPI.GetByCode)
 		r.POST("/", _productAPI.Create)
 		r.DELETE("/:code", _productAPI.Delete)
