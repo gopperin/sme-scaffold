@@ -3,6 +3,7 @@ package api
 import (
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"gorm.io/driver/mysql"
@@ -26,17 +27,17 @@ func InitDatabase() (*gorm.DB, error) {
 	}
 
 	_logMode := logger.Silent
-	switch myconfig.Case.Database.LogMode {
-	case "Info":
+	switch strings.ToLower(myconfig.Case.Database.LogMode) {
+	case "info":
 		_logMode = logger.Info
 		break
-	case "Warn":
+	case "warn":
 		_logMode = logger.Warn
 		break
-	case "Error":
+	case "error":
 		_logMode = logger.Error
 		break
-	case "Silent":
+	case "silent":
 		_logMode = logger.Silent
 		break
 	default:
