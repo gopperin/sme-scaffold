@@ -17,16 +17,16 @@ import (
 func InitDatabase() (*gorm.DB, error) {
 
 	_config := mysql.Config{
-		DSN:                       myconfig.Database.URL, // DSN data source name
-		DefaultStringSize:         255,                   // string 类型字段的默认长度
-		DisableDatetimePrecision:  true,                  // 禁用 datetime 精度，MySQL 5.6 之前的数据库不支持
-		DontSupportRenameIndex:    true,                  // 重命名索引时采用删除并新建的方式，MySQL 5.7 之前的数据库和 MariaDB 不支持重命名索引
-		DontSupportRenameColumn:   true,                  // 用 `change` 重命名列，MySQL 8 之前的数据库和 MariaDB 不支持重命名列
-		SkipInitializeWithVersion: false,                 // 根据版本自动配置
+		DSN:                       myconfig.Case.Database.URL, // DSN data source name
+		DefaultStringSize:         255,                        // string 类型字段的默认长度
+		DisableDatetimePrecision:  true,                       // 禁用 datetime 精度，MySQL 5.6 之前的数据库不支持
+		DontSupportRenameIndex:    true,                       // 重命名索引时采用删除并新建的方式，MySQL 5.7 之前的数据库和 MariaDB 不支持重命名索引
+		DontSupportRenameColumn:   true,                       // 用 `change` 重命名列，MySQL 8 之前的数据库和 MariaDB 不支持重命名列
+		SkipInitializeWithVersion: false,                      // 根据版本自动配置
 	}
 
 	_logMode := logger.Silent
-	switch myconfig.Database.LogMode {
+	switch myconfig.Case.Database.LogMode {
 	case "Info":
 		_logMode = logger.Info
 		break
@@ -35,6 +35,9 @@ func InitDatabase() (*gorm.DB, error) {
 		break
 	case "Error":
 		_logMode = logger.Error
+		break
+	case "Silent":
+		_logMode = logger.Silent
 		break
 	default:
 		_logMode = logger.Silent

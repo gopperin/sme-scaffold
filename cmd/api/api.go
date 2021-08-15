@@ -49,7 +49,7 @@ func run() {
 		logrus.Println("InitDatabase error", err.Error())
 		return
 	}
-	logrus.Info("sme-scaffold start on:", myconfig.Application.Port)
+	logrus.Info("sme-scaffold start on:", myconfig.Case.Application.Port)
 
 	/* api base */
 	myrouter.SetupBaseRouter(router)
@@ -58,12 +58,12 @@ func run() {
 	myrouter.SetupProductRouter(router, _db)
 
 	server := &http.Server{
-		Addr:         ":" + myconfig.Application.Port,
+		Addr:         ":" + myconfig.Case.Application.Port,
 		Handler:      router,
 		ReadTimeout:  300 * time.Second,
 		WriteTimeout: 300 * time.Second,
 	}
 
-	logrus.Println("sme-scaffold start on:", myconfig.Application.Port)
+	logrus.Println("sme-scaffold start on:", myconfig.Case.Application.Port)
 	gracehttp.Serve(server)
 }
