@@ -26,3 +26,5 @@ core.yaml.sample -> core.yaml
 ## figlet
 
 figlet -f digital sme-scaffold
+
+## todo
