@@ -27,4 +27,8 @@ core.yaml.sample -> core.yaml
 
 figlet -f digital sme-scaffold
 
+## sonar
+
+    sonar-scanner -Dsonar.projectKey=test-golang -Dsonar.sources=. -Dsonar.host.url=http://127.0.0.1:9001 -Dsonar.login=13f5314fa5f29152a2de0d8031fbd18b57407820
+
 ## todo
