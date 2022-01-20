@@ -1,7 +1,6 @@
 package product
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -19,34 +18,33 @@ func ProvideAPI(service Service) API {
 
 // GetAll GetAll
 func (a *API) GetAll(c *gin.Context) {
-	_products := a.Service.GetAll()
-	c.JSON(http.StatusOK, gin.H{"code": 200, "data": _products})
+	products := a.Service.GetAll()
+	c.JSON(http.StatusOK, gin.H{"code": 200, "data": products})
 }
 
 // GetByCode GetByCode
 func (a *API) GetByCode(c *gin.Context) {
-	_code := c.Params.ByName("code")
-	fmt.Println(_code)
-	_prod := a.Service.GetByCode(_code)
+	code := c.Params.ByName("code")
+	prod := a.Service.GetByCode(code)
 
-	c.JSON(http.StatusOK, gin.H{"code": 200, "data": _prod})
+	c.JSON(http.StatusOK, gin.H{"code": 200, "data": prod})
 }
 
 // Create Create
 func (a *API) Create(c *gin.Context) {
-	var _product Product
-	err := c.BindJSON(&_product)
+	var product Product
+	err := c.BindJSON(&product)
 	if err != nil {
 		c.Status(http.StatusBadRequest)
 		return
 	}
-	_createProduct := a.Service.Save(_product)
-	c.JSON(http.StatusOK, gin.H{"code": 200, "data": _createProduct})
+	createProduct := a.Service.Save(product)
+	c.JSON(http.StatusOK, gin.H{"code": 200, "data": createProduct})
 }
 
 // Delete Delete
 func (a *API) Delete(c *gin.Context) {
-	_code := c.Params.ByName("code")
-	a.Service.Delete(_code)
+	code := c.Params.ByName("code")
+	a.Service.Delete(code)
 	c.JSON(http.StatusOK, gin.H{"code": 200, "data": "OK"})
 }

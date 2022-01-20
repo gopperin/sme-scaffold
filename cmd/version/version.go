@@ -13,7 +13,7 @@ var (
 		Short:   "get version info",
 		Example: "sme-scaffold version",
 		PreRun: func(cmd *cobra.Command, args []string) {
-
+			// pre不需要做操作
 		},
 		RunE: func(cmd *cobra.Command, args []string) error {
 			return run()

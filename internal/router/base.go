@@ -10,11 +10,11 @@ import (
 func SetupBaseRouter(g *gin.Engine) {
 
 	// initialize API
-	_baseAPI := mywire.InitBaseAPI()
+	baseAPI := mywire.InitBaseAPI()
 
 	r := g.Group("/")
 	{
-		r.GET("health", _baseAPI.Health)
-		r.GET("release", _baseAPI.Release)
+		r.GET("health", baseAPI.Health)
+		r.GET("release", baseAPI.Release)
 	}
 }

@@ -11,13 +11,13 @@ import (
 func SetupProductRouter(g *gin.Engine, db *gorm.DB) {
 
 	// initialize API
-	_productAPI := mywire.InitProductAPI(db)
+	productAPI := mywire.InitProductAPI(db)
 
 	r := g.Group("/api/v1/products")
 	{
-		r.GET("", _productAPI.GetAll)
-		r.GET("/:code", _productAPI.GetByCode)
-		r.POST("/", _productAPI.Create)
-		r.DELETE("/:code", _productAPI.Delete)
+		r.GET("", productAPI.GetAll)
+		r.GET("/:code", productAPI.GetByCode)
+		r.POST("/", productAPI.Create)
+		r.DELETE("/:code", productAPI.Delete)
 	}
 }

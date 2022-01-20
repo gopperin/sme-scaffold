@@ -44,7 +44,7 @@ func run() {
 
 	router.Use(mymiddleware.Cors())
 
-	_db, err := InitDatabase()
+	db, err := InitDatabase()
 	if err != nil {
 		logrus.Println("InitDatabase error", err.Error())
 		return
@@ -55,7 +55,7 @@ func run() {
 	myrouter.SetupBaseRouter(router)
 
 	/* product base */
-	myrouter.SetupProductRouter(router, _db)
+	myrouter.SetupProductRouter(router, db)
 
 	server := &http.Server{
 		Addr:         ":" + myconfig.Case.Application.Port,

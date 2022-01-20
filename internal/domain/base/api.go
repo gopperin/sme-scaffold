@@ -17,8 +17,8 @@ func ProvideAPI(service Service) API {
 
 // Release Release
 func (a *API) Release(ctx *gin.Context) {
-	_release := a.Service.Release()
-	ctx.JSON(http.StatusOK, _release)
+	release := a.Service.Release()
+	ctx.JSON(http.StatusOK, release)
 }
 
 // Health Health
